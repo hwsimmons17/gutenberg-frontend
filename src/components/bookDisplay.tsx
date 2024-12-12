@@ -1,5 +1,4 @@
 export default function BookDisplay({ book }: { book: BookWithText }) {
-  console.log(book);
   return (
     <>
       <div className="overflow-hidden bg-white shadow sm:rounded-lg">
@@ -138,10 +137,10 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
             {book.text.split("\r\n\r\n").map((paragraph, index) => (
               <p key={index} className="mb-4">
                 {paragraph.split("\r\n").map((line, lineIndex) => (
-                  <div key={lineIndex}>
+                  <span key={lineIndex}>
                     {line}
                     <br />
-                  </div>
+                  </span>
                 ))}
               </p>
             ))}
