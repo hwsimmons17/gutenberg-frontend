@@ -25,8 +25,8 @@ export const newWsUrl = (pathname: string): URL => {
   return url;
 };
 
-export const getFetch = async (url: URL): Promise<any> => {
-  var res = await fetch(url, {
+export const getFetch = async (url: URL) => {
+  let res = await fetch(url, {
     method: "GET",
     credentials: "include",
   });
@@ -177,7 +177,7 @@ export const postMultipartFetch = async (url: URL, form: FormData) => {
 export const postMultipartFetchWithReturn = async (
   url: URL,
   form: FormData
-): Promise<any> => {
+) => {
   const res = await fetch(url, {
     method: "POST",
 
