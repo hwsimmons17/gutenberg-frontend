@@ -25,9 +25,11 @@ export default function Example() {
 
   return (
     <>
-      <Sidebar bookID={bookID} setBookID={setBookID}>
-        {data && <BookDisplay book={data} />}
-      </Sidebar>
+      {searchParams && (
+        <Sidebar bookID={bookID} setBookID={setBookID}>
+          {data && <BookDisplay book={data} />}
+        </Sidebar>
+      )}
     </>
   );
 }
