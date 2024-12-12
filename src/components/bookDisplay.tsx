@@ -95,18 +95,19 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                   className="divide-y divide-gray-100 rounded-md border border-gray-200"
                   key={1}
                 >
-                  {book.book.metadata?.notes.map((note) => (
-                    <li
-                      key={note.note}
-                      className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
-                    >
-                      <div className="flex w-0 flex-1 items-center">
-                        <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          {note.note}
+                  {book.book.metadata?.notes &&
+                    book.book.metadata?.notes.map((note) => (
+                      <li
+                        key={note.note}
+                        className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
+                      >
+                        <div className="flex w-0 flex-1 items-center">
+                          <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                            {note.note}
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  ))}
+                      </li>
+                    ))}
                 </ul>
               </dd>
             </div>
@@ -119,18 +120,19 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                   className="divide-y divide-gray-100 rounded-md border border-gray-200"
                   key={2}
                 >
-                  {book.book.metadata?.subjects.map((subjects) => (
-                    <li
-                      key={subjects.subject}
-                      className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
-                    >
-                      <div className="flex w-0 flex-1 items-center">
-                        <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          {subjects.subject}
+                  {book.book.metadata?.subjects &&
+                    book.book.metadata?.subjects.map((subjects) => (
+                      <li
+                        key={subjects.subject}
+                        className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
+                      >
+                        <div className="flex w-0 flex-1 items-center">
+                          <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                            {subjects.subject}
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  ))}
+                      </li>
+                    ))}
                 </ul>
               </dd>
             </div>
