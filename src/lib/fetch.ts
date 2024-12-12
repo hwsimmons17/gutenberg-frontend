@@ -67,7 +67,7 @@ export const downloadFetch = async (url: URL): Promise<[Blob, string]> => {
   return [await res.blob(), submatches[1] ?? "unknown.csv"];
 };
 
-export const postFetch = async (url: URL, body: any) => {
+export const postFetch = async (url: URL, body: unknown) => {
   const res = await fetch(url, {
     method: "POST",
 
@@ -79,7 +79,7 @@ export const postFetch = async (url: URL, body: any) => {
   }
 };
 
-export const putFetch = async (url: URL, body: any) => {
+export const putFetch = async (url: URL, body: unknown) => {
   const res = await fetch(url, {
     method: "PUT",
 
@@ -91,7 +91,7 @@ export const putFetch = async (url: URL, body: any) => {
   }
 };
 
-export const putReturnFetch = async (url: URL, body: any) => {
+export const putReturnFetch = async (url: URL, body: unknown) => {
   const res = await fetch(url, {
     method: "PUT",
 
@@ -105,7 +105,7 @@ export const putReturnFetch = async (url: URL, body: any) => {
   return await res.json();
 };
 
-export const postReturnFetch = async (url: URL, body: any) => {
+export const postReturnFetch = async (url: URL, body: unknown) => {
   const res = await fetch(url, {
     method: "POST",
 
@@ -119,7 +119,7 @@ export const postReturnFetch = async (url: URL, body: any) => {
   return await res.json();
 };
 
-export const postFetchNoHandle = async (url: URL, body: any) => {
+export const postFetchNoHandle = async (url: URL, body: unknown) => {
   const res = await fetch(url, {
     method: "POST",
 
