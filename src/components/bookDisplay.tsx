@@ -95,7 +95,7 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                   className="divide-y divide-gray-100 rounded-md border border-gray-200"
                   key={1}
                 >
-                  {/* {book.book.metadata?.notes &&
+                  {book.book.metadata?.notes &&
                     book.book.metadata?.notes.map((note) => (
                       <li
                         key={note.note}
@@ -107,7 +107,7 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                           </div>
                         </div>
                       </li>
-                    ))} */}
+                    ))}
                 </ul>
               </dd>
             </div>
@@ -120,7 +120,7 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                   className="divide-y divide-gray-100 rounded-md border border-gray-200"
                   key={2}
                 >
-                  {/* {book.book.metadata?.subjects &&
+                  {book.book.metadata?.subjects &&
                     book.book.metadata?.subjects.map((subjects) => (
                       <li
                         key={subjects.subject}
@@ -132,7 +132,7 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                           </div>
                         </div>
                       </li>
-                    ))} */}
+                    ))}
                 </ul>
               </dd>
             </div>
