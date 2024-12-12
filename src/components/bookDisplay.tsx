@@ -7,7 +7,7 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
 
   const submitPrompt = async () => {
     setPrompt("");
-    setAnalysis("Loading...");
+    setAnalysis("Processing data, this may take a min...");
     try {
       const data = await analyzeText(book.book.id, prompt);
       setAnalysis(data);
