@@ -97,8 +97,8 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                 >
                   {book.book.metadata?.notes.map((note) => (
                     <li
+                      key={note.note}
                       className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
-                      key={note.id}
                     >
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
@@ -121,8 +121,8 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                 >
                   {book.book.metadata?.subjects.map((subjects) => (
                     <li
+                      key={subjects.subject}
                       className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
-                      key={subjects.id}
                     >
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
