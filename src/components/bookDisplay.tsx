@@ -85,7 +85,10 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                 className="divide-y divide-gray-100 rounded-md border border-gray-200"
               >
                 {book.book.metadata?.notes.map((note) => (
-                  <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6">
+                  <li
+                    className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
+                    key={note.id}
+                  >
                     <div className="flex w-0 flex-1 items-center">
                       <div className="ml-4 flex min-w-0 flex-1 gap-2">
                         {note.note}
@@ -105,7 +108,10 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
                 className="divide-y divide-gray-100 rounded-md border border-gray-200"
               >
                 {book.book.metadata?.subjects.map((subjects) => (
-                  <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6">
+                  <li
+                    className="flex items-center justify-between py-4 pl-4 pr-5 text-sm/6"
+                    key={subjects.id}
+                  >
                     <div className="flex w-0 flex-1 items-center">
                       <div className="ml-4 flex min-w-0 flex-1 gap-2">
                         {subjects.subject}
