@@ -4,7 +4,7 @@ export const newUrl = (pathname: string): URL => {
   if (!process.env.NEXT_PUBLIC_SERVER_URL) {
     throw Error("Must set NEXT_PUBLIC_SERVER_URL env var");
   }
-  var url = new URL(process.env.NEXT_PUBLIC_SERVER_URL);
+  const url = new URL(process.env.NEXT_PUBLIC_SERVER_URL);
   url.pathname = pathname;
   return url;
 };
@@ -13,7 +13,7 @@ export const newWsUrl = (pathname: string): URL => {
   if (!process.env.NEXT_PUBLIC_SERVER_URL) {
     throw Error("Must set NEXT_PUBLIC_SERVER_URL env var");
   }
-  var url = new URL(process.env.NEXT_PUBLIC_SERVER_URL);
+  const url = new URL(process.env.NEXT_PUBLIC_SERVER_URL);
   url.pathname = pathname;
   if (url.protocol == "https:") {
     url.protocol = "wss:";
