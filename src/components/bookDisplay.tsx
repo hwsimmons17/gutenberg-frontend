@@ -7,8 +7,13 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
 
   const submitPrompt = async () => {
     setPrompt("");
-    const data = await analyzeText(book.book.id, prompt);
-    setAnalysis(data);
+    setAnalysis("Loading...");
+    try {
+      const data = await analyzeText(book.book.id, prompt);
+      setAnalysis(data);
+    } catch (error: any) {
+      setAnalysis("Error: " + error.message);
+    }
   };
 
   return (
