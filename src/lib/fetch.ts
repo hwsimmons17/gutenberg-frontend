@@ -130,13 +130,17 @@ export const postFetchNoHandle = async (url: URL, body: unknown) => {
 };
 
 export const postFormFetch = async (url: URL, form: FormData) => {
+  const params = new URLSearchParams();
+  for (const [key, value] of form.entries()) {
+    params.append(key, value.toString());
+  }
+
   const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    //@ts-ignore
-    body: new URLSearchParams(form),
+    body: params.toString(),
   });
 
   if (!res.ok) {
@@ -151,7 +155,6 @@ export const postBinaryFetch = async (url: URL, file: File) => {
     headers: {
       "Content-Type": file.type,
     },
-    //@ts-ignore
     body: file,
   });
 
