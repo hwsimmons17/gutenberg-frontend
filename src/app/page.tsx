@@ -1,13 +1,13 @@
 "use client";
 
 import Sidebar from "@/components/sidebar";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getBook } from "@/lib/api";
 import BookDisplay from "@/components/bookDisplay";
 
-export default function Example() {
+function Page() {
   const [bookID, setBookID] = useState("");
   const searchParams = useSearchParams();
 
@@ -33,3 +33,11 @@ export default function Example() {
     </>
   );
 }
+
+const BookDisplayWrapper = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Page />
+  </Suspense>
+);
+
+export default BookDisplayWrapper;
