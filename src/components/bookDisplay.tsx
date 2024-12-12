@@ -1,7 +1,19 @@
+import { analyzeText } from "@/lib/api";
+import { useState } from "react";
+
 export default function BookDisplay({ book }: { book: BookWithText }) {
+  const [prompt, setPrompt] = useState("");
+  const [analysis, setAnalysis] = useState("");
+
+  const submitPrompt = async () => {
+    setPrompt("");
+    const data = await analyzeText(book.book.id, prompt);
+    setAnalysis(data);
+  };
+
   return (
     <>
-      <div className="overflow-hidden bg-white shadow sm:rounded-lg">
+      <div className="overflow-hidden bg-white shadow sm:rounded-lg mb-4">
         <div className="px-4 py-6 sm:px-6">
           <h3 className="text-base/7 font-semibold text-gray-900">
             {book.book.title}
@@ -123,6 +135,46 @@ export default function BookDisplay({ book }: { book: BookWithText }) {
               </dd>
             </div>
           </dl>
+        </div>
+      </div>
+
+      <div className="overflow-hidden bg-white shadow sm:rounded-lg mb-4">
+        <div className="px-4 py-6 sm:px-6">
+          <h3 className="text-base/7 font-semibold text-gray-900">
+            Analyze Text with AI
+          </h3>
+        </div>
+        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt className="text-sm font-medium text-gray-900">Prompt</dt>
+          <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+            <input
+              id="prompt"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              name="prompt"
+              type="prompt"
+              placeholder="Identify key characters"
+              className="mb-6 block w-72 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+            />
+            <button
+              type="button"
+              onClick={submitPrompt}
+              className="rounded bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Submit
+            </button>
+          </dd>
+        </div>
+        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt className="text-sm font-medium text-gray-900">Result</dt>
+          <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+            {analysis.split("\r\n").map((line, lineIndex) => (
+              <span key={lineIndex}>
+                {line}
+                <br />
+              </span>
+            ))}
+          </dd>
         </div>
       </div>
 

@@ -14,3 +14,12 @@ export const getBook = async (id: number): Promise<BookWithText> => {
   const url = newUrl(`/books/${id}`);
   return getFetch(url);
 };
+
+export const analyzeText = async (
+  id: number,
+  prompt: string
+): Promise<string> => {
+  const url = newUrl(`/books/${id}/analyze`);
+  url.searchParams.append("prompt", prompt);
+  return getFetch(url);
+};
